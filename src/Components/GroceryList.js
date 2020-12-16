@@ -1,12 +1,36 @@
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
 import '../CustomStylesheet.css';
 
+import React, {useState, useEffect} from 'react';
+
 function GroceryList(){
+
+  const [grocerylist, setGrocerylist] = useState([]);
+  let tempGroceryList = [];
+
+
+  useEffect(() => {
+    setGrocerylist(tempGroceryList);
+  }, []);
+
+
+  let renderGroceryItems = grocerylist.map((item)=>
+    <tr key={grocerylist.indexOf(item)}>
+      <td>{grocerylist.indexOf(item) + 1}</td>
+      <td>{item.itemName}</td>
+      <td>{item.itemQuantity}</td>
+    </tr>
+  );
+
+  function handleAddNewItemClick(){
+
+  }
 
   return(
     <div className="GroceryListMain">
       <h1>Grocery List</h1>
-      <Table striped bordered hover>
+      <Table striped bordered>
         <thead>
           <tr>
             <th>#</th>
@@ -15,20 +39,9 @@ function GroceryList(){
           </tr>
         </thead>
         <tbody>
+        {renderGroceryItems}
           <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>+Add new grocery item</td>
-            <td></td>
+            <td colSpan="3"><Button variant="outline-dark" onClick={handleAddNewItemClick}>+Add new grocery item</Button></td>
           </tr>
         </tbody>
       </Table>
