@@ -1,9 +1,40 @@
 .GroceryListMain{
-  margin-left: 25%;
-  margin-right: 25%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
-button{
+.number{
+  width: 10%;
+  text-align: center;
+}
+
+.quantity{
+  width: 25%;
+}
+
+.edit{
+  width: 5%;
+}
+
+/*Overriding bootstrap*/
+.table-sm td{
+  padding: 0;
+}
+
+.btn-outline-dark{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.btn-outline-info{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.btn-outline-danger{
+  padding: 0;
   margin: 0;
   width: 100%;
 }

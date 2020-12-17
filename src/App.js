@@ -1,5 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './CustomStylesheet.css';
 import GroceryList from './Components/GroceryList';
 
 function App() {

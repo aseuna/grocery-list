@@ -10,29 +10,6 @@ function GroceryList(){
 
   const [grocerylist, setGrocerylist] = useState([]);
 
-  /*
-  let tempGroceryList = [{
-    itemName: "asdasd",
-    itemQuantity: "345"
-  },
-  {
-    itemName: "fgherfg",
-    itemQuantity: "77kg"
-  }];*/
-
-  /*
-  useEffect(() => {
-    setGrocerylist(tempGroceryList);
-  }, []);*/
-  /*
-  let renderGroceryItems = grocerylist.map((item)=>
-    <tr key={grocerylist.indexOf(item)}>
-      <td>{grocerylist.indexOf(item) + 1}</td>
-      <td>{item.itemName}</td>
-      <td>{item.itemQuantity}</td>
-    </tr>
-  );*/
-
   let renderGroceryItems = grocerylist.map((item)=>
     <Item key={grocerylist.indexOf(item)} item={item} number={grocerylist.indexOf(item) + 1}/>
   );
@@ -47,18 +24,19 @@ function GroceryList(){
   return(
     <div className="GroceryListMain">
       <h1>Grocery List</h1>
-      <Table striped bordered>
+      <Table bordered size="sm" hover>
         <thead>
           <tr>
-            <th>#</th>
+            <th className="number">#</th>
             <th>Item</th>
-            <th>Quantity</th>
+            <th className="quantity">Quantity</th>
+            <th className="edit">Edit</th>
           </tr>
         </thead>
         <tbody>
           {renderGroceryItems}
           <tr>
-            <td colSpan="3"><Button variant="outline-dark" onClick={handleAddNewItemClick}>+Add new grocery item</Button></td>
+            <td colSpan="5"><Button variant="outline-dark" onClick={handleAddNewItemClick}>+Add new grocery item</Button></td>
           </tr>
         </tbody>
       </Table>
