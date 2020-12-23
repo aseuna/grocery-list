@@ -1,4 +1,5 @@
 import Item from './Item.js';
+import EditItem from './EditItem.js';
 
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
@@ -11,7 +12,7 @@ function GroceryList(){
   const [grocerylist, setGrocerylist] = useState([]);
 
   let renderGroceryItems = grocerylist.map((item)=>
-    <Item key={grocerylist.indexOf(item)} item={item} number={grocerylist.indexOf(item) + 1}/>
+    <EditItem key={grocerylist.indexOf(item)} item={item} number={grocerylist.indexOf(item) + 1}/>
   );
 
   function handleAddNewItemClick(){
