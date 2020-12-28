@@ -10,17 +10,30 @@ import React, {useState, useEffect} from 'react';
 function GroceryList(){
 
   const [grocerylist, setGrocerylist] = useState([]);
+  const [editModeIndex, setEditModeIndex] = useState(-1);
 
-  let renderGroceryItems = grocerylist.map((item)=>
-    <EditItem key={grocerylist.indexOf(item)} item={item} number={grocerylist.indexOf(item) + 1}/>
-  );
+    let renderGroceryItems = grocerylist.map((item)=>
+        <SetItemType key={grocerylist.indexOf(item)} item={item} number={grocerylist.indexOf(item) + 1}/>
+    );
 
-  function handleAddNewItemClick(){
-    setGrocerylist(grocerylist => [...grocerylist, {
-      itemName: "",
-      itemQuantity: ""
-    }]);
-  }
+    function handleEditMode(newEditModeIndex){
+        setEditModeIndex(newEditModeIndex);
+    }
+
+    function SetItemType(props){
+        if(editModeIndex === props.number - 1){
+            return <EditItem item={props.item} number={props.number}/>
+        } else {
+            return <Item item={props.item} number={props.number} editModeIndexFromItem={handleEditMode}/>
+        }
+    }
+
+    function handleAddNewItemClick(){
+        setGrocerylist(grocerylist => [...grocerylist, {
+        itemName: "",
+        itemQuantity: ""
+        }]);
+    }
 
   return(
     <div className="GroceryListMain">
@@ -31,7 +44,7 @@ function GroceryList(){
             <th className="number">#</th>
             <th>Item</th>
             <th className="quantity">Quantity</th>
-            <th className="edit">Edit</th>
+            <th className="edit"></th>
           </tr>
         </thead>
         <tbody>

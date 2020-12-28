@@ -17,7 +17,7 @@ function EditItem(props){
         <td className="number">{props.number}</td>
         <td className="name"><input className="tableInput" type="text" default={groceryItem.itemName} /></td>
         <td className="quantity"><input className="tableInput" type="text" default={groceryItem.itemQuantity}/></td>
-        <td className="edit"></td>
+        <td className="accept"></td>
       </tr>
   );
 }
