@@ -9,8 +9,8 @@ import React, {useState, useEffect} from 'react';
 
 function GroceryList(){
 
-  const [grocerylist, setGrocerylist] = useState([]);
-  const [editModeIndex, setEditModeIndex] = useState(-1);
+    const [grocerylist, setGrocerylist] = useState([]);
+    const [editModeIndex, setEditModeIndex] = useState(-1);
 
     // variable that contains items to be rendered 
     let renderGroceryItems = grocerylist.map((item)=>
@@ -25,19 +25,29 @@ function GroceryList(){
         setEditModeIndex(newEditModeIndex);
     }
 
+    /*
+    function that handles data from EditItem-component
+    */
+    function handleDataFromEditItem(dataItem){
+        setEditModeIndex(dataItem.editModeIndex);
+    }
+
     /* 
     function that chooses correct item to be rendered in the list based on whether the index
     is in edit mode or not, editModeIndex is based on which element user has clicked
     */
     function SetItemType(props){
-        if(editModeIndex === props.number - 1){
-            return <EditItem item={props.item} number={props.number}/>
+        let itemIndex = props.number - 1;
+        if(editModeIndex === itemIndex){
+            return <EditItem item={props.item} number={props.number} dataFromEditItem={handleDataFromEditItem}/>
         } else {
             return <Item item={props.item} number={props.number} editModeIndexFromItem={handleEditMode}/>
         }
     }
 
-    // Function that adds a new empty grocery item to grocery list when button is clicked
+    /*
+    Function that adds a new empty grocery item to grocery list when button is clicked
+    */
     function handleAddNewItemClick(){
         setGrocerylist(grocerylist => [...grocerylist, {
         itemName: "",
