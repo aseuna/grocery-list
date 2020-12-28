@@ -12,14 +12,23 @@ function GroceryList(){
   const [grocerylist, setGrocerylist] = useState([]);
   const [editModeIndex, setEditModeIndex] = useState(-1);
 
+    // variable that contains items to be rendered 
     let renderGroceryItems = grocerylist.map((item)=>
         <SetItemType key={grocerylist.indexOf(item)} item={item} number={grocerylist.indexOf(item) + 1}/>
     );
 
+    /*
+    function triggered by a callback function for Item-element which handles assignment of editModeIndex
+    
+    */    
     function handleEditMode(newEditModeIndex){
         setEditModeIndex(newEditModeIndex);
     }
 
+    /* 
+    function that chooses correct item to be rendered in the list based on whether the index
+    is in edit mode or not, editModeIndex is based on which element user has clicked
+    */
     function SetItemType(props){
         if(editModeIndex === props.number - 1){
             return <EditItem item={props.item} number={props.number}/>
@@ -28,6 +37,7 @@ function GroceryList(){
         }
     }
 
+    // Function that adds a new empty grocery item to grocery list when button is clicked
     function handleAddNewItemClick(){
         setGrocerylist(grocerylist => [...grocerylist, {
         itemName: "",
