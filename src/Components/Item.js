@@ -1,4 +1,4 @@
-import '../CustomStylesheet.css';
+import '../custom-stylesheet.css';
 
 import Button from 'react-bootstrap/Button';
 import React, {useState, useEffect} from 'react';

@@ -1,4 +1,4 @@
-import '../CustomStylesheet.css';
+import '../custom-stylesheet.css';
 
 import React, { useState, useEffect, useRef } from 'react';
 import onClickOutside from "react-onclickoutside";
@@ -30,7 +30,8 @@ function EditItem(props){
         let dummyData = {
             editedItemName: inputNameRef.current.value,
             editedItemQuantity: inputQuantityRef.current.value,
-            editedEditModeIndex: -1
+            editedEditModeIndex: -1,
+            editedItemIndex: props.number - 1
         }
         props.dataFromEditItem(dummyData);
     };
@@ -43,7 +44,7 @@ function EditItem(props){
                 ref={inputNameRef}
                 className="tableInput"
                 type="text"
-                default={groceryItem.itemName}
+                defaultValue={groceryItem.itemName}
                 />
             </td>
             <td className="quantity">
@@ -51,7 +52,7 @@ function EditItem(props){
                 ref={inputQuantityRef}
                 className="tableInput"
                 type="text"
-                default={groceryItem.itemQuantity}
+                defaultValue={groceryItem.itemQuantity}
                 />
             </td>
             <td className="accept"></td>
