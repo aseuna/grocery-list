@@ -5,19 +5,21 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import '../CustomStylesheet.css';
 
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 function GroceryList(){
 
     const [grocerylist, setGrocerylist] = useState([]);
     const [editModeIndex, setEditModeIndex] = useState(-1);
 
+
+    let addNewItemBtnText = "+Add new grocery item";
     // variable that contains items to be rendered 
     let renderGroceryItems = grocerylist.map((item)=>
         <SetItemType key={grocerylist.indexOf(item)} item={item} number={grocerylist.indexOf(item) + 1}/>
     );
 
-    /*
+    /**
     function triggered by a callback function for Item-element which handles assignment of editModeIndex
     
     */    
@@ -25,14 +27,19 @@ function GroceryList(){
         setEditModeIndex(newEditModeIndex);
     }
 
-    /*
+    /**
     function that handles data from EditItem-component
     */
-    function handleDataFromEditItem(dataItem){
-        setEditModeIndex(dataItem.editModeIndex);
+    function handleDataFromEditItem(data){
+        setEditModeIndex(data.editModeIndex);
+        let dummyGroceryItem = {
+            itemName: data.editedItemName,
+            itemQuantity: data.editedItemQuantity
+        }
+        console.log(dummyGroceryItem);
     }
 
-    /* 
+    /**
     function that chooses correct item to be rendered in the list based on whether the index
     is in edit mode or not, editModeIndex is based on which element user has clicked
     */
@@ -41,11 +48,11 @@ function GroceryList(){
         if(editModeIndex === itemIndex){
             return <EditItem item={props.item} number={props.number} dataFromEditItem={handleDataFromEditItem}/>
         } else {
-            return <Item item={props.item} number={props.number} editModeIndexFromItem={handleEditMode}/>
+            return <Item item={props.item} number={props.number} dataFromItem={handleEditMode}/>
         }
     }
 
-    /*
+    /**
     Function that adds a new empty grocery item to grocery list when button is clicked
     */
     function handleAddNewItemClick(){
@@ -70,7 +77,7 @@ function GroceryList(){
         <tbody>
           {renderGroceryItems}
           <tr>
-            <td colSpan="5"><Button variant="outline-dark" onClick={handleAddNewItemClick}>+Add new grocery item</Button></td>
+            <td colSpan="5"><Button variant="outline-dark" onClick={handleAddNewItemClick}>{addNewItemBtnText}</Button></td>
           </tr>
         </tbody>
       </Table>

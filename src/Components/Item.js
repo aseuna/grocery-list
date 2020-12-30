@@ -14,13 +14,13 @@ function Item(props){
         setItemIndex(props.number - 1);
     }, [props]);
 
-    /*
+    /**
     function for button click, sends data back to GroceryList-element, data indicates
-    which Item-element is to be rendered as EditItem-element based on its index number on the list, 
+    which Item-element is to be rendered as EditItem-element instead based on its index number on the list, 
     the index is known by the props given to this element
     */
     function editButtonClick(){
-        props.editModeIndexFromItem(itemIndex);
+        props.dataFromItem(itemIndex);
     }
 
     return(
