@@ -3,7 +3,14 @@ import '../custom-stylesheet.css';
 import Button from 'react-bootstrap/Button';
 import React, {useState, useEffect} from 'react';
 
-
+/**
+ * Component which inludes one row in the table of parent component(App.js).
+ * In the row there are information on the grocery item:
+ * the number of the item, name, and quantity.
+ * This component is replaced by EditItem-component when user enters "edit mode"
+ * 
+ * @param {*} props 
+ */
 function Item(props){
 
     const [groceryItem, setGroceryItem] = useState({});

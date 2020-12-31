@@ -8,13 +8,19 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
 import React, {useState} from 'react';
-
+/**
+ * Main App
+ */
 function App(){
 
     const [grocerylist, setGrocerylist] = useState([]);
+    /**
+     * editModeIndex tells which Item is to be edited(and replaced by EditItem-component),
+     * -1 means "edit mode" is off
+     */
     const [editModeIndex, setEditModeIndex] = useState(-1);
-
     let addNewItemBtnText = "+Add new grocery item";
+
     // variable that contains items to be rendered 
     let renderGroceryItems = grocerylist.map((item)=>
         <SetItemType key={grocerylist.indexOf(item)} item={item} number={grocerylist.indexOf(item) + 1}/>

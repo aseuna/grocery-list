@@ -3,6 +3,17 @@ import '../custom-stylesheet.css';
 import React, { useState, useEffect, useRef } from 'react';
 import onClickOutside from "react-onclickoutside";
 
+/**
+ * Component which includes two input fields inside the table. 
+ * The first input is for the name of the grocery,
+ * and the second for the quantity of previous items.
+ * The component is rendered in the table when user enters "edit mode",
+ * and it replaces Item-component in the table
+ * When clicked outside of this component, the data is sent to the parent(App.js)
+ * and stored in the replacing Item-component, in the corresponding table cells.
+ * 
+ * @param {*} props 
+ */
 function EditItem(props){
     /**
      * states for storing information on grocery items written in input fields
@@ -64,5 +75,4 @@ const clickOutsideConfig = {
     handleClickOutside: () => EditItem.handleClickOutside
   };
 
-//export default EditItem;
 export default onClickOutside(EditItem, clickOutsideConfig);
