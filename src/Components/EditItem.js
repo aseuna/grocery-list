@@ -28,6 +28,13 @@ function EditItem(props){
      */
     useEffect(() => {
         setGroceryItem(props.item);
+
+        if(props.elementToFocus === "NAME"){
+            inputNameRef.current.focus();
+        } else {
+            inputQuantityRef.current.focus();
+        }
+
     }, [props]);
 
 

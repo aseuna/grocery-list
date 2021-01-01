@@ -8,6 +8,11 @@
     text-align: center;
 }
 
+.name{
+    max-width: auto;
+    overflow: scroll;
+}
+
 .name:hover{
     cursor: pointer;
 }
@@ -43,6 +48,12 @@
     height: 100%;
     border-radius: 0px;
     border: 0px;
+}
+
+.tableInput:focus{
+    outline: none;
+    border-color: #51f032;
+    box-shadow: 0 0 20px #51f032;
 }
 
 .btn-outline-dark{
