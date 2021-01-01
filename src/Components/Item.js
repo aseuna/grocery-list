@@ -23,7 +23,9 @@ function Item(props){
     /**
     * Function to handle click on grocery item name element, sends data back to GroceryList-element,
     * data indicates which Item-element is to be rendered as EditItem-element instead
-    * based on its index number on the list, the index is known by the props given to this element
+    * based on its index number on the list, the index is known by the props given to this element.
+    * "element" attribute tells editItem component which input field to focus first,
+    * this is based on which table cell the user double clicks
     */
     function handleItemNameClick(){
         props.dataFromItem({
@@ -35,6 +37,8 @@ function Item(props){
     * Function to handle click on grocery item quantity element, sends data back to GroceryList-element,
     * data indicates which Item-element is to be rendered as EditItem-element instead
     * based on its index number on the list, the index is known by the props given to this element
+    * "element" attribute tells editItem component which input field to focus first,
+    * this is based on which table cell the user double clicks
     */
     function handleItemQuantityClick(){
         props.dataFromItem({

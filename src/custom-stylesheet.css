@@ -9,6 +9,8 @@
 }
 
 .name{
+    position: relative;
+
     max-width: auto;
     overflow: scroll;
 }
@@ -19,6 +21,7 @@
 
 .quantity{
     width: 25%;
+    position: relative;
 }
 
 .quantity:hover{
