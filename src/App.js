@@ -27,15 +27,14 @@ function App(){
     );
 
     /**
-    function triggered by a callback function for Item-element which handles assignment of editModeIndex
-    
+    * function triggered by a callback function for Item-element which handles assignment of editModeIndex
     */    
     function handleEditMode(newEditModeIndex){
         setEditModeIndex(newEditModeIndex);
     }
 
     /**
-    function that handles data from EditItem-component
+    * function that handles data from EditItem-component
     */
     function handleDataFromEditItem(data){
         setEditModeIndex(data.editModeIndex);
@@ -43,8 +42,6 @@ function App(){
             itemName: data.editedItemName,
             itemQuantity: data.editedItemQuantity
         }
-        console.log(dummyGroceryItem);
-        console.log("edited item index: " + data.editedItemIndex);
 
         let dummyGroceryList = [...grocerylist];
         dummyGroceryList.splice(data.editedItemIndex, 1, dummyGroceryItem);
@@ -52,8 +49,9 @@ function App(){
     }
 
     /**
-    function that chooses correct item to be rendered in the list based on whether the index
-    is in edit mode or not, editModeIndex is based on which element user has clicked
+    * function component that chooses correct component(Item.js or EditItem.js) to be rendered
+    * in the list based on whether the index is in edit mode or not,
+    * editModeIndex is based on which element user has clicked
     */
     function SetItemType(props){
         let itemIndex = props.number - 1;
@@ -65,7 +63,7 @@ function App(){
     }
 
     /**
-    Function that adds a new empty grocery item to grocery list when button is clicked
+    * Function that adds a new empty grocery item to grocery list when button is clicked
     */
     function handleAddNewItemClick(){
         setGrocerylist(grocerylist => [...grocerylist, {
