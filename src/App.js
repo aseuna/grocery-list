@@ -29,8 +29,8 @@ function App(){
     /**
     * function triggered by a callback function for Item-element which handles assignment of editModeIndex
     */    
-    function handleEditMode(newEditModeIndex){
-        setEditModeIndex(newEditModeIndex);
+    function handleEditMode(data){
+        setEditModeIndex(data.itemIndex);
     }
 
     /**

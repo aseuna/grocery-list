@@ -66,7 +66,7 @@ function EditItem(props){
                 defaultValue={groceryItem.itemQuantity}
                 />
             </td>
-            <td className="accept"></td>
+            <td className="check-empty"></td>
         </tr>
     );
 }

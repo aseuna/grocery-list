@@ -8,15 +8,23 @@
     text-align: center;
 }
 
+.name:hover{
+    cursor: pointer;
+}
+
 .quantity{
     width: 25%;
 }
 
-.edit{
+.quantity:hover{
+    cursor:pointer;
+}
+
+.check{
     width: 50px;
 }
 
-.accept{
+.check-empty{
     width: 50px;
 }
 
