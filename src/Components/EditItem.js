@@ -60,7 +60,7 @@ function EditItem(props){
      * focusOnName value is used to determine z-index values for quantity and name-
      * elements, different z-indexes help display border glow properly
      */
-    useEffect(() =>{
+    useEffect(() => {
         if(focusOnName){
             setNameZ(2);
             setQuantityZ(1);
@@ -104,19 +104,19 @@ function EditItem(props){
         <tr>
             <td className="number">{props.number}</td>
             <td className="name" style={{zIndex: nameZ}}>
-                <input
+                <textarea
                 ref={inputNameRef}
-                className="tableInput"
-                type="text"
+                className="tableTextArea"
+                wrap="hard"
                 defaultValue={groceryItem.itemName}
                 onClick={handleNameInputClick}
                 />
             </td>
             <td className="quantity" style={{zIndex: quantityZ}}>
-                <input
+                <textarea
                 ref={inputQuantityRef}
-                className="tableInput"
-                type="text"
+                className="tableTextArea"
+                wrap="hard"
                 defaultValue={groceryItem.itemQuantity}
                 onClick={handleQuantityInputClick}
                 />

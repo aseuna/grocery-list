@@ -20,7 +20,6 @@ function App(){
      * -1 means "edit mode" is off
      */
     const [editModeIndex, setEditModeIndex] = useState(-1);
-
     /**
      * state for representing the input element that will be focused when editing
      * the string comes from Item component based on what element the user presses
@@ -47,7 +46,7 @@ function App(){
     * function that handles data from EditItem-component
     */
     function handleDataFromEditItem(data){
-        setEditModeIndex(data.editModeIndex);
+        setEditModeIndex(data.editedEditModeIndex);
         let dummyGroceryItem = {
             itemName: data.editedItemName,
             itemQuantity: data.editedItemQuantity
@@ -66,9 +65,18 @@ function App(){
     function SetItemType(props){
         let itemIndex = props.number - 1;
         if(editModeIndex === itemIndex){
-            return <EditItem item={props.item} elementToFocus={props.elementToFocus} number={props.number} dataFromEditItem={handleDataFromEditItem}/>
+            return <EditItem 
+            item={props.item} 
+            elementToFocus={props.elementToFocus} 
+            number={props.number} 
+            dataFromEditItem={handleDataFromEditItem}
+            />
         } else {
-            return <Item item={props.item} number={props.number} dataFromItem={handleDataFromItem}/>
+            return <Item 
+            item={props.item} 
+            number={props.number} 
+            dataFromItem={handleDataFromItem}
+            />
         }
     }
 
@@ -84,27 +92,29 @@ function App(){
 
   return(
     <div className="GroceryListMain">
-      <h1>Grocery List</h1>
-      <Table bordered size="sm">
-        <thead>
-          <tr>
-            <th className="number">#</th>
-            <th>Item</th>
-            <th>Quantity</th>
-            <th className="check"></th>
-          </tr>
-        </thead>
-        <tbody>
-          {renderGroceryItems}
-          <tr>
-            <td colSpan="5">
-                <Button 
-                className="addNewItemButton"
-                variant="outline-dark" 
-                onClick={handleAddNewItemClick}>{addNewItemBtnText}
-                </Button></td>
-          </tr>
-        </tbody>
+        <h1>Grocery List</h1>
+        <Table bordered size="sm">
+            <thead>
+                <tr>
+                    <th className="number">#</th>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th className="check"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {renderGroceryItems}
+                <tr>
+                    <td colSpan="4">
+                        <Button 
+                        className="addNewItemButton"
+                        variant="outline-dark" 
+                        onClick={handleAddNewItemClick}>
+                        {addNewItemBtnText}
+                        </Button>
+                    </td>
+                </tr>
+            </tbody>
       </Table>
     </div>
 

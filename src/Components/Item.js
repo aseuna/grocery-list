@@ -1,6 +1,6 @@
 import '../custom-stylesheet.css';
 
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 
 /**
  * Component which inludes one row in the table of parent component(App.js).
@@ -14,6 +14,9 @@ function Item(props){
 
     const [groceryItem, setGroceryItem] = useState({});
     const [itemIndex, setItemIndex] = useState(null);
+
+    // ref for the root element for the Item component 
+    const itemContainer = useRef(null);
 
     useEffect(() => {
         setGroceryItem(props.item);
@@ -47,11 +50,27 @@ function Item(props){
         });
     }
 
+    //itemContainer.current.clientWidth
     return(
-      <tr>
+      <tr ref={itemContainer}>
         <td className="number">{props.number}</td>
-        <td onDoubleClick={handleItemNameClick} className="name">{groceryItem.itemName}</td>
-        <td onDoubleClick={handleItemQuantityClick} className="quantity">{groceryItem.itemQuantity}</td>
+        <td
+        className="name"
+        onDoubleClick={handleItemNameClick}
+        >
+        <p className="overflowContainer">
+        {groceryItem.itemName}
+        </p>
+        </td>
+
+        <td
+        className="quantity"
+        onDoubleClick={handleItemQuantityClick}
+        >
+        <p className="overflowContainer">
+        {groceryItem.itemQuantity}
+        </p>
+        </td>
         <td className="check"></td>
       </tr>
     );

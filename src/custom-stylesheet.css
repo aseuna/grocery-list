@@ -5,14 +5,14 @@
 
 .number{
     width: 50px;
+    min-width: 50px;
+    max-width: 50px;
     text-align: center;
 }
 
 .name{
     position: relative;
-
-    max-width: auto;
-    overflow: scroll;
+    overflow-wrap: anywhere;
 }
 
 .name:hover{
@@ -22,38 +22,58 @@
 .quantity{
     width: 25%;
     position: relative;
+    overflow-wrap: anywhere;
 }
 
 .quantity:hover{
     cursor:pointer;
 }
 
+.overflowContainer{
+    padding: 0;
+    margin: 0;
+
+    overflow-y: scroll;
+    max-height: inherit;
+}
+
 .check{
     width: 50px;
+    min-width: 50px;
+    max-width: 50px;
 }
 
 .check-empty{
     width: 50px;
+    min-width: 50px;
+    max-width: 50px;
 }
 
 /*Overriding bootstrap*/
 
+.table-sm tr{
+    height: 50px;
+    max-height: 50px;
+}
+
 .table-sm td{
     padding: 0;
     vertical-align: middle;
-    height: 50px;
+    height: inherit;
+    max-height: inherit;
 }
 
-.tableInput{
+.tableTextArea{
     padding: 0;
     margin: 0;
     width: 100%;
-    height: 100%;
+    height: 45px;
     border-radius: 0px;
     border: 0px;
+    resize: none;
 }
 
-.tableInput:focus{
+.tableTextArea:focus{
     outline: none;
     border-color: #51f032;
     box-shadow: 0 0 20px #51f032;
