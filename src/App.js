@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './custom-stylesheet.css';
+import './css/custom-stylesheet.css';
 
 import Item from './Components/Item.js';
 import EditItem from './Components/EditItem.js';

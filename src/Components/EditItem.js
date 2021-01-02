@@ -1,4 +1,4 @@
-import '../custom-stylesheet.css';
+import '../css/custom-stylesheet.css';
 
 import React, { useState, useEffect, useRef } from 'react';
 import onClickOutside from "react-onclickoutside";
@@ -107,7 +107,8 @@ function EditItem(props){
                 <textarea
                 ref={inputNameRef}
                 className="tableTextArea"
-                wrap="hard"
+                
+                maxlength="1000"
                 defaultValue={groceryItem.itemName}
                 onClick={handleNameInputClick}
                 />
@@ -117,6 +118,7 @@ function EditItem(props){
                 ref={inputQuantityRef}
                 className="tableTextArea"
                 wrap="hard"
+                maxlength="10"
                 defaultValue={groceryItem.itemQuantity}
                 onClick={handleQuantityInputClick}
                 />

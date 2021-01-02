@@ -1,4 +1,4 @@
-import '../custom-stylesheet.css';
+import '../css/custom-stylesheet.css';
 
 import React, {useState, useEffect, useRef} from 'react';
 

@@ -1,12 +1,12 @@
 .GroceryListMain{
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 .number{
-    width: 50px;
-    min-width: 50px;
-    max-width: 50px;
+    width: 60px;
+    min-width: 60px;
+    max-width: 60px;
     text-align: center;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .quantity{
-    width: 25%;
+    width: 20%;
     position: relative;
     overflow-wrap: anywhere;
 }
@@ -33,44 +33,46 @@
     padding: 0;
     margin: 0;
 
-    overflow-y: scroll;
-    max-height: inherit;
+    /*overflow-y: scroll;
+    max-height: inherit;*/
 }
 
 .check{
-    width: 50px;
-    min-width: 50px;
-    max-width: 50px;
+    width: 60px;
+    min-width: 60px;
+    max-width: 60px;
 }
 
 .check-empty{
-    width: 50px;
-    min-width: 50px;
-    max-width: 50px;
+    width: 60px;
+    min-width: 60px;
+    max-width: 60px;
 }
 
 /*Overriding bootstrap*/
 
 .table-sm tr{
-    height: 50px;
-    max-height: 50px;
+    height: 60px;
+    /*max-height: 60px;*/
 }
 
 .table-sm td{
     padding: 0;
     vertical-align: middle;
     height: inherit;
-    max-height: inherit;
+    /*max-height: inherit;*/
 }
 
 .tableTextArea{
     padding: 0;
     margin: 0;
     width: 100%;
-    height: 45px;
+    height: 55px;
     border-radius: 0px;
     border: 0px;
+    
     resize: none;
+    /*FIX TEXTAREA RESIZING ON LONG TEXTS*/
 }
 
 .tableTextArea:focus{
