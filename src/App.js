@@ -24,19 +24,19 @@ function App(){
      * state for representing the input element that will be focused when editing
      * the string comes from Item component based on what element the user presses
      * options: NAME or QUANTITY
-     */ 
+     */
     const [elementToFocus, setElementToFocus] = useState("");
     // string for button
     let addNewItemBtnText = "+Add new grocery item";
 
-    // variable that contains items to be rendered 
+    // variable that contains items to be rendered
     let renderGroceryItems = grocerylist.map((item)=>
         <SetItemType key={grocerylist.indexOf(item)} item={item} number={grocerylist.indexOf(item) + 1} elementToFocus={elementToFocus}/>
     );
 
     /**
     * function triggered by a callback function for Item-element which handles assignment of editModeIndex
-    */    
+    */
     function handleDataFromItem(data){
         setEditModeIndex(data.itemIndex);
         setElementToFocus(data.element);
@@ -65,16 +65,16 @@ function App(){
     function SetItemType(props){
         let itemIndex = props.number - 1;
         if(editModeIndex === itemIndex){
-            return <EditItem 
-            item={props.item} 
-            elementToFocus={props.elementToFocus} 
-            number={props.number} 
+            return <EditItem
+            item={props.item}
+            elementToFocus={props.elementToFocus}
+            number={props.number}
             dataFromEditItem={handleDataFromEditItem}
             />
         } else {
-            return <Item 
-            item={props.item} 
-            number={props.number} 
+            return <Item
+            item={props.item}
+            number={props.number}
             dataFromItem={handleDataFromItem}
             />
         }
@@ -106,16 +106,16 @@ function App(){
                 {renderGroceryItems}
                 <tr>
                     <td colSpan="4">
-                        <Button 
+                        <Button
                         className="addNewItemButton"
-                        variant="outline-dark" 
+                        variant="outline-dark"
                         onClick={handleAddNewItemClick}>
                         {addNewItemBtnText}
                         </Button>
                     </td>
                 </tr>
             </tbody>
-      </Table>
+        </Table>
     </div>
 
   );

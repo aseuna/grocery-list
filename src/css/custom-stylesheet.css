@@ -70,7 +70,7 @@
     height: 55px;
     border-radius: 0px;
     border: 0px;
-    
+
     resize: none;
     /*FIX TEXTAREA RESIZING ON LONG TEXTS*/
 }
@@ -99,4 +99,17 @@
     padding: 0;
     margin: 0;
     width: 100%;
+}
+/*Overriding bootstrap ends*/
+
+/*Styles for the NewItem and NewEditItem starts*/
+
+.newItemContainer{
+  padding: 0;
+  margin: 0;
+  border: 1px;
+  border-style: solid;
+
+  width: 100%;
+  height: 60px;
 }
